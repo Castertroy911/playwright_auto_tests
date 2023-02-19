@@ -1,14 +1,19 @@
 from helper import Helper
+from Locators.locators import *
+from Data.data import *
+from checker_helper import CheckerHelper
+from base_helper import BaseHelper
 
 
 class PurchaseRequisitionPage(Helper):
-    def create_new_pr(self):
-        self.goto("/purchase/requisition/create/manual")
-        self.page.fill("[name='date']", "08.02.2023")
-        self.page.fill("[name='document_costcenter_19457']", "test")
-        self.page.fill("[name='document_costcenter_19458'] [name = 'date']", "08.02.2023")
-        self.page.fill("//label[text()='testing 2 ']/following-sibling::div//input[@type='text']", "1")
-        self.page.press("//label[text()='testing 2 ']/following-sibling::div//input[@type='text']", "Enter")
-        self.page.press("//label[text()='testing 2 ']/following-sibling::div//input[@type='text']", "Enter")
-        self.page.click(".btn2.btn2--primary.btn2--large")
+    def create_new_pr(self, *approval_flow):
+        self.helper1.goto(PurchaseRequisitionPageLocators.PR_CREATION_PAGE)
+        self.page.fill(PurchaseRequisitionPageLocators.DELIVERY_DATE_LOCATOR, PurchaseRequisitionData.DELIVERY_DATE)
+        self.page.click(PurchaseRequisitionPageLocators.DCC_ICF_LOCATOR)
+        if approval_flow == 'approval':
+            self.page.fill(PurchaseRequisitionPageLocators.DCC_ICF_LOCATOR, PurchaseRequisitionData.APPROVAL_DCC)
+        else:
+            self.page.fill(PurchaseRequisitionPageLocators.DCC_ICF_LOCATOR, PurchaseRequisitionData.NOT_APPROVAL_DCC)
+        self.page.press(PurchaseRequisitionPageLocators.DCC_ICF_LOCATOR, "Enter")
+        self.page.click(PurchaseRequisitionPageLocators.CREATE_BUTTON)
 

@@ -1,5 +1,5 @@
 from Pages.base_page import *
-from base_helper import BaseHelper
+from document_page import DocumentPage
 
 
 """В этом хелпере описываются все проверки, которые могут быть осуществлены с разными документами, на разных страницах.
@@ -8,14 +8,14 @@ from base_helper import BaseHelper
 разных документов"""
 
 
-class CheckHelper(BaseHelper):
+class CheckHelper(DocumentPage):
     def __init__(self, *args, **kwargs):
         super(CheckHelper, self).__init__(*args, **kwargs)
 
     def check_creation_date(self):
         creation_date = self.page.locator(DocumentsPageLocators.CREATION_DATE)
         creation_date = creation_date.text_content()
-        assert PurchaseRequisitionData.DELIVERY_DATE == creation_date, "Creation date is invalid"
+        assert CreateDocumentsData.DELIVERY_DATE == creation_date, "Creation date is invalid"
 
     def check_document_status(self, status):
         assert self.presence_of_element_located(f"//span[@class='badge status.{status}']", timeout=20000), \
@@ -33,4 +33,6 @@ class CheckHelper(BaseHelper):
     def check_item_deleted(self):
         assert self.element_is_not_present(DocumentsPageLocators.ITEMS_LIST, timeout=20000), "Item is not deleted"
 
+    def check_trial_created(self):
+        assert self.presence_of_element_located(""), "Trial is not created"
 

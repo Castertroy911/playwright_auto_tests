@@ -1,6 +1,6 @@
 from playwright.sync_api import sync_playwright
 from pytest import fixture
-from Data.data import BasePageData
+from Data.data import LoginPageData
 from Locators.locators import LoginPageLocators
 
 
@@ -22,8 +22,8 @@ def app(get_playwright, request):
     base_url = request.config.getoption('--base_url')
     page.goto(base_url)
     page.click(LoginPageLocators.LOG_IN)
-    page.fill(LoginPageLocators.USERNAME, BasePageData.USER_EMAIL)
-    page.fill(LoginPageLocators.PASSWORD, BasePageData.USER_PASSWORD)
+    page.fill(LoginPageLocators.USERNAME, LoginPageData.USER_EMAIL)
+    page.fill(LoginPageLocators.PASSWORD, LoginPageData.USER_PASSWORD)
     page.click(LoginPageLocators.LOGIN_BUTTON)
     yield page
     browser.close()

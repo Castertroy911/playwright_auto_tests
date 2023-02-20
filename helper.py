@@ -13,7 +13,7 @@ class Helper(BasePage):
 
     def goto(self, endpoint: str, use_base_url=True):
         if use_base_url:
-            self.page.goto(BasePageData.BASE_URL + endpoint)
+            self.page.goto(LoginPageData.BASE_URL + endpoint)
 
     def presence_of_element_located(self, locator, timeout=10000):
         try:

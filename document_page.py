@@ -2,14 +2,14 @@ from Pages.base_page import *
 from helper import Helper
 
 
-"""В этом хелпере описываются основные действия, которые могут быть произведены с разными документами, 
+"""Здесь описываются основные действия, которые могут быть произведены с разными документами, 
 на разных страницах. К примеру добавление Note и Comments абсолютно во всех жокументах одинаковое. Можно описать здесь 
 эту логику один раз и потом просто переиспользовать ее для разных документов"""
 
 
-class BaseHelper(Helper):
+class DocumentPage(Helper):
     def __init__(self, *args, **kwargs):
-        super(BaseHelper, self).__init__(*args, **kwargs)
+        super(DocumentPage, self).__init__(*args, **kwargs)
 
     def add_note(self):
         self.page.click(DocumentsPageLocators.ADD_NOTE)

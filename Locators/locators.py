@@ -29,10 +29,10 @@ class DocumentsPageLocators:
     CLOSE_ADD_ITEMS_FORM = "//span[@class='icon-icon_cancel']"
     ITEMS_LIST = "//tr[@class='listItem']"
     DELETE_BUTTON = "//button[@class='el-tooltip remove_button']"
-    CONFIRMATION_POP_UP_BUTTON_YES = "//div[@class='v-dialog__buttons']"
+    CONFIRMATION_POP_UP_BUTTON_YES = "//div[@class='v-dialog__buttons']/a"
     CONFIRMATION_POP_UP_BUTTON_NO = "//button[@class='v-button v-button--white-danger v-button--full']"
 
-    CONFIRM_DOCUMENT = "//div[@class='btn2-group']//button[@class='btn2 btn2--success btn2--block']"
+    CONFIRM_DOCUMENT = "//div[@class='btn2-group']//a[@class='btn2 btn2--success btn2--block']"
 
     STATUS_DRAFT = "open"
     STATUS_APPROVED = "approved"

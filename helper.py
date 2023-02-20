@@ -1,6 +1,5 @@
 from Pages.base_page import *
-from checker_helper import CheckerHelper
-from base_helper import BaseHelper
+from playwright.sync_api import TimeoutError
 
 
 """В этом хелпере описаны вспомогательные функции, которые могут быть полезны при автоматизации. Например наличие 
@@ -8,7 +7,7 @@ from base_helper import BaseHelper
 потом их можно было использовать в конструкции assert"""
 
 
-class Helper(BaseHelper, CheckerHelper):
+class Helper(BasePage):
     def __init__(self, *args, **kwargs):
         super(Helper, self).__init__(*args, **kwargs)
 
@@ -16,10 +15,22 @@ class Helper(BaseHelper, CheckerHelper):
         if use_base_url:
             self.page.goto(BasePageData.BASE_URL + endpoint)
 
-    def presence_of_element_located(self, locator):
+    def presence_of_element_located(self, locator, timeout=10000):
         try:
-            self.page.locator(locator).wait_for(timeout=10000)
+            self.page.locator(locator).wait_for(timeout=timeout)
         except TimeoutError:
             return False
         return True
+
+    def element_is_not_present(self, locator, timeout=10000):
+        try:
+            self.page.wait_for_selector(locator, state='detached', timeout=timeout)
+        except TimeoutError:
+            return False
+        return True
+
+
+
+
+
 

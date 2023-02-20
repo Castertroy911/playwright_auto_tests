@@ -1,13 +1,11 @@
-from helper import Helper
+from check_helper import CheckHelper
 from Locators.locators import *
 from Data.data import *
-from checker_helper import CheckerHelper
-from base_helper import BaseHelper
 
 
-class PurchaseRequisitionPage(Helper):
+class PurchaseRequisitionPage(CheckHelper):
     def create_new_pr(self, *approval_flow):
-        self.helper1.goto(PurchaseRequisitionPageLocators.PR_CREATION_PAGE)
+        self.goto(PurchaseRequisitionPageLocators.PR_CREATION_PAGE)
         self.page.fill(PurchaseRequisitionPageLocators.DELIVERY_DATE_LOCATOR, PurchaseRequisitionData.DELIVERY_DATE)
         self.page.click(PurchaseRequisitionPageLocators.DCC_ICF_LOCATOR)
         if approval_flow == 'approval':

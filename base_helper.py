@@ -1,9 +1,5 @@
+from Pages.base_page import *
 from helper import Helper
-from Locators.locators import *
-from Data.data import *
-from checker_helper import CheckerHelper
-from Pages.base_page import BasePage
-
 
 
 """В этом хелпере описываются основные действия, которые могут быть произведены с разными документами, 
@@ -11,11 +7,9 @@ from Pages.base_page import BasePage
 эту логику один раз и потом просто переиспользовать ее для разных документов"""
 
 
-class BaseHelper(BasePage):
+class BaseHelper(Helper):
     def __init__(self, *args, **kwargs):
         super(BaseHelper, self).__init__(*args, **kwargs)
-        self.helper = Helper()
-        self.checker_helper = CheckerHelper()
 
     def add_note(self):
         self.page.click(DocumentsPageLocators.ADD_NOTE)
@@ -39,4 +33,3 @@ class BaseHelper(BasePage):
     def confirm_document(self):
         self.page.click(DocumentsPageLocators.CONFIRM_DOCUMENT)
         self.page.click(DocumentsPageLocators.CONFIRMATION_POP_UP_BUTTON_YES)
-

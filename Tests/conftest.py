@@ -1,5 +1,4 @@
 from Pages.base_page import *
-from check_helper import CheckHelper
 
 
 @pytest.fixture(scope='session')

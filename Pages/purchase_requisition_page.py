@@ -1,5 +1,5 @@
 from check_helper import CheckHelper
-from base_page import *
+from Pages.base_page import *
 
 
 class PurchaseRequisitionPage(CheckHelper):

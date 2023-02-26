@@ -3,12 +3,7 @@ import pytest
 from Pages.purchase_requisition_page import PurchaseRequisitionPage
 
 
-@pytest.fixture
-def create_something():
-    a = print("I create some data")
-    yield a
-    print("It's after the test")
-
+@pytest.mark.smoke
 class TestPurchaseRequisition:
     def test_create_pr(self, app):
         pr = PurchaseRequisitionPage(app)

@@ -20,7 +20,6 @@ class CreateDocumentsPageLocators:
                                "//div[@class='vue-treeselect__placeholder vue-treeselect-helper-zoom-effect-off']"
 
 
-
 class DocumentsPageLocators:
     CREATION_DATE = "//h4[text()='Creation Date']/following-sibling::span"
 
@@ -54,3 +53,19 @@ class DocumentsPageLocators:
     STATUS_PENDING = "pending"
     STATUS_REJECTED = "denied"
     STATUS_CANCELED = "canceled"
+
+
+class InventoryPageLocators:
+    OPEN_WAREHOUSE = "//tbody//td[5]"
+    EDIT_BUTTON = "//button[@class='el-tooltip edit_button']"
+    QTY = "//td[text()='1']//following-sibling::td//input[@name='quantity_0']"
+    QTY_SAVED_VALUE = "//td[text()='1']/following-sibling::td[6]//b"
+    MINIMUM_STOCK_LVL = "//td[text()='1']//following-sibling::td//input[@name='minimumStockLevel_0']"
+    MINIMUM_STOCK_LVL_SAVED_VALUE = "//td[text()='1']/following-sibling::td[7]//b"
+    REORDER_TO = "//td[text()='1']//following-sibling::td//input[@name='reorderTo_0']"
+    REORDER_TO_SAVED_VALUE = "//td[text()='1']/following-sibling::td[8]//b"
+    NEED_TO_ORDER = "//td[text()='1']/following-sibling::td[9]//b"
+    SAVE_BUTTON = "//button[@class='el-tooltip edit_button accepted']"
+    CANCEL_BUTTON = "//button[@class='el-tooltip remove_button done']"
+    YELLOW_CIRCLE_LOW_STOCK = "//span[@class='el-tooltip dot warning']"
+    RED_CIRCLE_LOW_STOCK = "//span[@class='el-tooltip dot alert']"

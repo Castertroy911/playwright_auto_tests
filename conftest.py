@@ -1,22 +1,19 @@
 from playwright.sync_api import sync_playwright
-from pytest import fixture
-from Data.data import *
-from Locators.locators import *
-from Pages.base_page import BasePage
+from Pages.base_page import *
 
 
-@fixture(scope='session')
+@pytest.fixture(scope='session')
 def base_page():
     return BasePage()
 
 
-@fixture(scope='session')
+@pytest.fixture(scope='session')
 def get_playwright():
     with sync_playwright() as playwright:
         yield playwright
 
 
-@fixture(scope='session')
+@pytest.fixture(scope='session')
 def app(get_playwright, base_page):
     browser = get_playwright.chromium.launch(headless=False)
     context = browser.new_context(http_credentials={"username": "tester", "password": "563282367"})

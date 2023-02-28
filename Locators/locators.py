@@ -17,7 +17,8 @@ class CreateDocumentsPageLocators:
     DCC_ICF_LOCATOR = "//label[text()='DCC ']/following-sibling::div//input"
     CREATE_BUTTON = ".btn2.btn2--primary.btn2--large"
     POST_TO_WAREHOUSE_OPTION = "//label[contains(text(), 'Post to Warehouse')]/ancestor::div[@class='input-wrap']" \
-                               "//div[@class='vue-treeselect__placeholder vue-treeselect-helper-zoom-effect-off']"
+                               "//div[@class='vue-treeselect__input-container']/input"
+    CREATE_WAREHOUSE_REQUEST = "//a[@class='btn2 btn2--success btn2--block btn2--large']"
 
 
 class DocumentsPageLocators:

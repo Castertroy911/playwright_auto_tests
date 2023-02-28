@@ -14,10 +14,11 @@ class LoginPageData:
 
 class CreateDocumentsData:
     PR_CREATION_PAGE = "/purchase/requisition/create/manual"
-    WR_CREATION_PAGE = "/warehouse/request/create"
+    WR_PAGE = "/warehouse/request"
     DELIVERY_DATE = datetime.datetime.today().strftime("%m.%d.%Y")
     NOT_APPROVAL_DCC = "Option 1"
     APPROVAL_DCC = "ApprovalDCC"
+    WAREHOUSE_NAME = "Warehouse"
 
 
 class DocumentsPageData:
